@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Avenir Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('~assets/fonts/avenir/Avenir-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Avenir Roman';
+  font-style: normal;
+  font-weight: 300;
+  src: url('~assets/fonts/avenir/Avenir-Roman.woff') format('woff');
+}
+@font-face {
+  font-family: 'Avenir Heavy';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~assets/fonts/avenir/Avenir-Heavy.woff') format('woff');
+}
+@font-face {
+  font-family: 'Avenir Black';
+  font-style: normal;
+  font-weight: bold;
+  src: url('~assets/fonts/avenir/Avenir-Black.woff') format('woff');
+}
+
+@import 'base/variables';
+@import 'base/text';
+@import 'base/base';
+@import 'base/colors';
+@import 'base/shadow';
+@import 'base/space';
+@import 'base/buttons';
+@import 'base/icons';
+@import 'base/animations';
+@import 'base/modal';
+
+[v-cloak] {
+  display: none;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.bg-color {
+  background: #F2F4F8
+}
+
+body {
+  padding-right: 0!important
+}
