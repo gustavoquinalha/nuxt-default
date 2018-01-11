@@ -10,3 +10,5 @@ npm-debug.log
 dist
 .idea
 .DS_Store
+/dist
+/docs
