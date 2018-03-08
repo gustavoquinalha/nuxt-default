@@ -9,6 +9,6 @@ npm-debug.log
 
 dist
 .idea
-.DS_Store
+**/.DS_Store
 /dist
 /docs

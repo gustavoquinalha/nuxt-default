@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container align-center">
     <h1>404</h1>
   </div>
 </template>
