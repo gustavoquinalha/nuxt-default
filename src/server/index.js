@@ -15,4 +15,6 @@ app.post('/api/v1/users', users.create)
 app.delete('/api/v1/users/:id', users.remove)
 app.put('/api/v1/users/:id', users.update)
 
+app.post('/api/v1/login', users.login)
+
 export default app

@@ -18,8 +18,8 @@ export const mutations = {
   UPDATE(state, user) {
     state.users = state.users.map(_user => _user._id == user._id ? user : _user)
   },
-  REMOVE(state, _id) {
-    state.users = state.users.filter(user => user._id != _id)
+  REMOVE(state, id) {
+    state.users = state.users.filter(user => user._id != id)
   }
 }
 
@@ -47,12 +47,12 @@ export const actions = {
     const data = await res.json()
     commit('UPDATE', data)
   },
-  async remove({ commit }, _id) {
+  async remove({ commit }, id) {
     if (!id) return
     await fetch(`/api/v1/users/${id}`, {
       method: 'delete'
     })
-    commit('REMOVE', _id)
+    commit('REMOVE', id)
   }
 }
 

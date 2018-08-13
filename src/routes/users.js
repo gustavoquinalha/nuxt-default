@@ -16,5 +16,9 @@ export default {
   async remove(req, res) {
     const result = await User.findByIdAndRemove(req.params.id)
     res.send(result)
-  }
+  },
+  async login(req, res) {
+    const user = await User.findOne(req.body)
+    res.send(user)
+  },
 }
