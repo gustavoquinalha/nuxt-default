@@ -33,7 +33,7 @@
 export default {}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   padding-top: 50px;
   background: $color-light;
@@ -72,7 +72,7 @@ export default {}
   .footer {
     padding-top: 30px;
   }
-  
+
   .footer-right,
   .footer_link-container {
       justify-content: center;

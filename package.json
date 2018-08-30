@@ -1,10 +1,9 @@
 {
-  "name": "stronger",
+  "name": "worbink",
   "version": "0.0.0",
   "main": "index.js",
   "repository": "https://github.com/turicas/worbink",
   "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "dev": "babel src --out-dir dist && node dist/index.js"
   },

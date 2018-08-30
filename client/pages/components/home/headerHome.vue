@@ -45,7 +45,7 @@ import menuHome from '~/pages/components/home/menuHome.vue'
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .arrow {
   position: absolute;
   bottom: 0;
@@ -96,12 +96,6 @@ import menuHome from '~/pages/components/home/menuHome.vue'
 
 .header-search {
   margin-top: 30px;
-}
-
-.btn-search {
-  border-color: $color-white;
-  margin-left: 10px;
-  min-width: 0;
 }
 
 .header-map {
