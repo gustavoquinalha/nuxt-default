@@ -1,0 +1,36 @@
+.text,
+p {
+  font-size: 13px;
+}
+
+.h1,
+h1 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.h2,
+h2 {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.h1,
+.h2,
+.text,
+h1,
+h2,
+p {
+  color: $color-dark;
+}
+
+.text-title {
+  color: $color-primary;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.text-legend {
+  color: $color-dark;
+  font-size: 11px;
+}
