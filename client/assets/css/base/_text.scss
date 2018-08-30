@@ -1,3 +1,14 @@
+a {
+  text-decoration: none;
+  color: $color-primary;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+a:hover {
+  color: $color-secundary;
+}
+
 .text,
 p {
   font-size: 13px;
@@ -22,6 +33,9 @@ h1,
 h2,
 p {
   color: $color-dark;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
 }
 
 .text-title {
@@ -33,4 +47,8 @@ p {
 .text-legend {
   color: $color-dark;
   font-size: 11px;
+}
+
+.title {
+  margin-bottom: 30px;
 }
