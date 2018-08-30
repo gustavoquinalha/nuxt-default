@@ -2,8 +2,8 @@
   "name": "stronger",
   "version": "0.0.0",
   "main": "index.js",
-  "repository": "https://github.com/lucasfontesgaspareto/stronger",
-  "author": "Lucas Fontes Gaspareto <lucasfontesgaspareto@gmail.com>",
+  "repository": "https://github.com/turicas/worbink",
+  "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "babel src --out-dir dist && node dist/index.js"

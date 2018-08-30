@@ -1,20 +1,28 @@
 <template>
-  <div>
-    <div v-if="user._id">
-      Bem vindo {{user.name}}
-    </div>
-    <nuxt-child></nuxt-child>
+  <div class="app">
+    <headerHome/>
+    <contentHome/>
+    <footerHome/>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-export default {
-  middleware: [ 'secure' ],
-  
-  computed: {
-    ...mapState(['user'])
+ import headerHome from '~/pages/components/home/headerHome.vue'
+ import contentHome from '~/pages/components/home/contentHome.vue'
+ import footerHome from '~/pages/components/home/footerHome.vue'
+
+ export default {
+  components: {
+    headerHome,
+    contentHome,
+    footerHome
   }
 }
 </script>
 
+<style lang="scss">
+.app {
+  width: 100%;
+  overflow: hidden;
+}
+</style>
