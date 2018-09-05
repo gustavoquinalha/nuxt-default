@@ -57,3 +57,15 @@ button[disabled] {
   margin-left: 10px;
   min-width: 0;
 }
+
+.btn-link {
+  padding: 0;
+  height: auto;
+  background: transparent;
+  color: $color-primary;
+  min-width: inherit;
+    &:hover {
+      background: transparent;
+      color: $color-secundary;
+    }
+}

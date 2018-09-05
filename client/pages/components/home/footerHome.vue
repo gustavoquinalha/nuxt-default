@@ -10,9 +10,9 @@
         </div>
 
         <ul class="list-none container align-center wrap ul-social">
-          <li><a href="#" target="_blank" class="footer-link">About Us</a></li>
-          <li><a href="#" target="_blank" class="footer-link">Contact Us</a></li>
-          <li><a href="#" target="_blank" class="footer-link">Terms and Conditions</a></li>
+          <li><nuxt-link to="/about-us"  class="footer-link">About Us</nuxt-link></li>
+          <li><nuxt-link to="/contact-us"  class="footer-link">Contact Us</nuxt-link></li>
+          <li><nuxt-link to="/terms-and-conditions"  class="footer-link">Terms and Conditions</nuxt-link></li>
         </ul>
       </div>
     </div>
