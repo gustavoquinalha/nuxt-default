@@ -1,13 +1,7 @@
 <template>
 <div class="">
   <menuHome />
-  <div class="content-about">
-    <div class="size margin">
-      <div class="container-about overflow">
-        <nuxt></nuxt>
-      </div>
-    </div>
-  </div>
+  <nuxt></nuxt>
   <footerHome/>
 </div>
 </template>
@@ -29,17 +23,19 @@
 
 
 <style lang="scss">
-.content-about {
+.content-login {
   background: $color-light;
   min-height: calc(100vh - 60px - 250px);
   padding: 50px 0;
 }
 
-.container-about {
+.container-login {
   background: $color-white;
   padding: 20px;
   border: 1px solid $color-light-grey;
   border-radius: 3px;
-  min-height: calc(100vh - 60px - 250px -100px);
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 </style>

@@ -65,7 +65,7 @@ export default {
     display: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .tabs {
         flex-direction: column;
         border-bottom: none;

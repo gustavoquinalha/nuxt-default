@@ -60,3 +60,13 @@ p {
 .title-about {
   justify-content: space-between;
 }
+
+@media (max-width: 520px) {
+  .title {
+    flex-direction: column;
+
+    .flex-basis-100 {
+      flex-basis: 0;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 process.env.DEBUG = 'nuxt:*'
 
 module.exports = {
+  loading: {
+    color: '#f48c39'
+  },
   mode: 'universal',
   dev: true,
   isDev: true,

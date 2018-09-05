@@ -3,12 +3,14 @@
   <div class="size margin">
     <div class="menu-container container wrap align-items-center justify-content-between">
       <div class="menu-logo">
-         <img src="~/assets/img/logo.png" class="logo" alt="" />
+         <nuxt-link to="/">
+           <img src="~/assets/img/logo.png" class="logo" alt="" />
+         </nuxt-link>
       </div>
 
       <div class="menu-btn container">
-        <button type="button" name="button" class="btn btn-outline btn-margin-right">Login</button>
-        <button type="button" name="button" class="btn">Register</button>
+        <nuxt-link to="/login" class="btn btn-outline btn-margin-right">Login</nuxt-link>
+        <nuxt-link to="/register" class="btn">Register</nuxt-link>
       </div>
 
       <div class="menu-btn-responsive">

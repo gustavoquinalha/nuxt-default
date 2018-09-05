@@ -1,0 +1,42 @@
+.login-block {
+  width: 90%;
+  margin: 0 auto;
+}
+.content-login .title {
+  margin-bottom: 20px;
+}
+
+.content-login .tabs {
+    border-bottom: 1px solid $color-grey;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.content-login .tab-link {
+    border-bottom: 2px solid transparent;
+    height: 28px;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+    position: relative;
+    flex-grow: 1;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &.active {
+      color: $color-dark;
+      border-color: $color-primary;
+    }
+}
+
+.btn-block {
+  width: 90%;
+}
