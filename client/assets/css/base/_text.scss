@@ -1,13 +1,15 @@
+.link,
 a {
   text-decoration: none;
   color: $color-primary;
   transition: 0.3s;
   font-size: 13px;
+  cursor: pointer;
+    &:hover {
+      color: $color-secundary;
+    }
 }
 
-a:hover {
-  color: $color-secundary;
-}
 
 .text,
 p {

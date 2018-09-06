@@ -70,6 +70,7 @@ export default {
         flex-direction: column;
         border-bottom: none;
         width: auto;
+        background: red;
     }
 
     .tab-link {
