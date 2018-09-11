@@ -33,9 +33,9 @@
   background: $color-white;
   padding: 20px;
   border: 1px solid $color-light-grey;
-  border-radius: 3px;
   width: 600px;
   max-width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 }
 </style>

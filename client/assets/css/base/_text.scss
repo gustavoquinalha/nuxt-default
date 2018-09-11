@@ -5,11 +5,19 @@ a {
   transition: 0.3s;
   font-size: 13px;
   cursor: pointer;
-    &:hover {
+
+  i {
+    color: $color-primary;
+  }
+
+  &:hover {
+    color: $color-secundary;
+
+    i {
       color: $color-secundary;
     }
+  }
 }
-
 
 .text,
 p {
@@ -40,6 +48,11 @@ p {
   line-height: 1.3;
 }
 
+i {
+  color: $color-dark;
+  line-height: 2;
+}
+
 .text-title {
   color: $color-primary;
   font-size: 13px;
@@ -62,7 +75,6 @@ p {
 .title-about {
   justify-content: space-between;
 }
-
 @media (max-width: 520px) {
   .title {
     flex-direction: column;

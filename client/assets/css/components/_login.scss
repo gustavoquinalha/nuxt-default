@@ -2,6 +2,7 @@
   width: 90%;
   margin: 0 auto;
 }
+
 .content-login .title {
   margin-bottom: 20px;
 }
@@ -11,34 +12,34 @@
 }
 
 .content-login .tabs {
-    border-bottom: 1px solid $color-grey;
-    margin-bottom: 30px;
-    text-align: center;
-    width: 100%;
-    position: relative;
+  border-bottom: 1px solid $color-grey;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  position: relative;
 }
 
 .content-login .tab-link {
-    border-bottom: 2px solid transparent;
-    height: 28px;
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0 10px;
-    position: relative;
-    flex-grow: 1;
-    cursor: pointer;
-    transition: .3s;
+  border-bottom: 2px solid transparent;
+  height: 28px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+  position: relative;
+  flex-grow: 1;
+  cursor: pointer;
+  transition: 0.3s;
 
-    &:hover {
-      color: $color-primary;
-    }
+  &:hover {
+    color: $color-primary;
+  }
 
-    &.active {
-      color: $color-dark;
-      border-color: $color-primary;
-    }
+  &.active {
+    color: $color-dark;
+    border-color: $color-primary;
+  }
 }
 
 .content-login .tab-link span {
@@ -49,12 +50,12 @@
   width: 400px;
   max-width: 100%;
 }
-
 @media (max-width: 315px) {
   .content-login .tabs {
     flex-direction: column;
     border-bottom: 0;
   }
+
   .content-login .tab-link {
     width: 100%;
     margin-bottom: 10px;
@@ -63,8 +64,9 @@
     box-sizing: border-box;
     padding: 10px 20px;
   }
+
   .content-login .tab-link.active {
-    border-color:  $color-primary;
+    border-color: $color-primary;
     border-radius: $radius;
   }
 }
@@ -80,46 +82,64 @@
   position: relative;
   overflow: hidden;
 
-      &::after {
-        content: " ";
-        position: absolute;
-        bottom: -10px;
-        transform: rotate(45deg);
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 13px;
-        height: 13px;
-        background: $color-primary;
-      }
+  &::after {
+    content: ' ';
+    position: absolute;
+    bottom: -10px;
+    transform: rotate(45deg);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 13px;
+    height: 13px;
+    background: $color-primary;
+  }
 }
 
 .container-steps {
   padding: 20px;
   position: relative;
-    li {
-      flex-basis: 200px;
-      flex-grow: 1;
-      text-align: center;
-    }
 
-    span {
-      font-size: 13px;
-      margin-top: 10px;
+  li {
+    flex-basis: 200px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  span {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 60%;
+    max-width: 400px;
+    height: 2px;
+    background: $color-light;
+  }
+
+  &.min-steps::after {
+    max-width: 300px;
+    width: 50%;
+  }
+  @media (max-width: 320px) {
+    flex-direction: column;
+
+    li {
+      flex-basis: auto;
+      margin: 10px 0;
     }
 
     &::after {
-      content: " ";
-      position: absolute;
-      top: 40px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 400px;
-      height: 2px;
-      background: $color-light;
+      content: none;
     }
+  }
 }
 
 .steps-ball {
@@ -130,15 +150,17 @@
   background: $color-primary;
   color: $color-white;
   font-size: 13px;
-    &.active {
-      background: $color-grey;
-      width: 40px;
-      height: 40px;
-      font-size: 16px;
-    }
-    &.disabled {
-      background: $color-light;
-    }
+
+  &.active {
+    background: $color-grey;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &.disabled {
+    background: $color-light;
+  }
 }
 
 .input-file {
@@ -157,12 +179,13 @@
   height: 70px;
   background: lighten($color-grey, 20);
   border-radius: 50%;
-  transition: .3s;
-    i {
-      color: $color-grey;
-      font-size: 1.5rem;
-      transition: .3s;
-    }
+  transition: 0.3s;
+
+  i {
+    color: $color-grey;
+    font-size: 1.5rem;
+    transition: 0.3s;
+  }
 }
 
 .back-arrow {
@@ -173,13 +196,16 @@
 
 .container-avatar {
   cursor: pointer;
+
   &:hover {
     .avatar-img {
       background: $color-primary;
-        i {
-          color: $color-white;
-        }
+
+      i {
+        color: $color-white;
+      }
     }
+
     .link {
       color: $color-secundary;
     }
@@ -188,22 +214,61 @@
 
 .container-next-step {
   width: 600px;
-  padding: 20px 0;
+  padding: 20px;
   max-width: 100%;
   margin: 0 auto;
-  background: #fff;
+  background: $color-white;
   border: 1px solid $color-light-grey;
+
   span {
     margin: 10px 0;
   }
 
   .btn.btn-block {
     position: relative;
-      i {
-        position: absolute;
-        right: 10px;
-        top: 6px;
-        font-size: 1.5rem;
-      }
+
+    i {
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      font-size: 1.5rem;
+    }
   }
+}
+
+.container-location {
+  background: $color-white;
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid $color-light-grey;
+}
+
+.container-workingtime {
+  background: $color-white;
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid $color-light-grey;
+  padding: 20px;
+}
+
+.container-location {
+  padding: 20px 0 0;
+  border-bottom: 0;
+
+  .group {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.container-map {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.border-top-0 {
+  border-top: 0;
 }

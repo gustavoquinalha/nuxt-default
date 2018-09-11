@@ -20,6 +20,10 @@
   animation: fadeUp .3s backwards;
 }
 
+.fade {
+  animation: fade .3s backwards;
+}
+
 .delay-1 {
   animation-delay: .1s;
 }

@@ -17,12 +17,240 @@
 
   label {
     width: 40px;
-    opacity: .5;
+    opacity: 0.5;
     text-align: center;
   }
+
   .input-block {
     border: none;
     border-bottom: 1px solid $color-light-grey;
     border-radius: 0;
   }
+}
+
+.container-input {
+  margin-bottom: 15px;
+}
+
+.input-check {
+  border: none;
+
+  .checkbox {
+    display: none;
+  }
+
+  .check-bg {
+    margin: 10px;
+  }
+}
+
+.check-bg {
+  width: 80px;
+  height: 36px;
+  background: $color-grey;
+  border-radius: 30px;
+  position: relative;
+  transition: 0.3s;
+
+  &.yes {
+    background: $color-primary;
+  }
+}
+
+.check-ball {
+  width: 30px;
+  height: 30px;
+  background: lighten($color-grey, 20);
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  transition: 0.3s;
+
+  &.yes {
+    left: 46px;
+  }
+}
+
+.check-bg:hover {
+  background: lighten($color-grey, 10);
+
+  &.yes {
+    background: $color-secundary;
+  }
+
+  .check-ball {
+    background: lighten($color-grey, 30);
+  }
+}
+
+.check-no,
+.check-yes {
+  position: absolute;
+  top: 10px;
+}
+
+.check-no {
+  right: 10px;
+  color: $color-white;
+}
+
+.check-yes {
+  left: 10px;
+  color: $color-white;
+}
+/* form starting stylings ------------------------------- */
+.container-form {
+  .group {
+    margin: 10px;
+  }
+}
+
+.group {
+  position: relative;
+  margin-bottom: 20px;
+
+  input,
+  select {
+    font-size: 13px;
+    padding: 10px 10px 10px 5px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $color-grey;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+  }
+  /* LABEL ======================================= */
+  label {
+    color: $color-grey;
+    font-size: 13px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  /* active state */
+  input:focus ~ label,
+  input:valid ~ label,
+  select:focus ~ label,
+  select:valid ~ label {
+    top: -10px;
+    font-size: 14px;
+    color: $color-primary;
+  }
+  /* BOTTOM BARS ================================= */
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .bar:after,
+  .bar:before {
+    content: '';
+    height: 1px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: $color-primary;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  .bar:before {
+    left: 50%;
+  }
+
+  .bar:after {
+    right: 50%;
+  }
+  /* active state */
+  input:focus ~ .bar:after,
+  input:focus ~ .bar:before,
+  select:focus ~ .bar:after,
+  select:focus ~ .bar:before {
+    width: 50%;
+  }
+  /* HIGHLIGHTER ================================== */
+  .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  /* active state */
+  input:focus ~ .highlight,
+  select:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+  }
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: $color-primary;
+    }
+
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: $color-primary;
+    }
+
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+  @keyframes inputHighlighter {
+    from {
+      background: $color-primary;
+    }
+
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+}
+
+.login-block.full {
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.border-map {
+  padding: 40px;
+  border-bottom: 1px solid $color-light-grey;
+}
+
+.container-form {
+  .flex-basis-400 {
+    margin: 10px auto;
+  }
+}
+
+.btn-edit {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  color: $color-primary;
 }
