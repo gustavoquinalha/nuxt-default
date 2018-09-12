@@ -16,7 +16,7 @@
 
         <div class="header-map container">
 
-          <a href="#">
+          <a href="#" class="btn-find-map">
             <i class="icon fas fa-map-marked-alt"></i>
             <span>Find in map</span>
           </a>

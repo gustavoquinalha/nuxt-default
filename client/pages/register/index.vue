@@ -148,7 +148,7 @@
       <i class="btn-edit fas fa-pen"></i>
     </div>
     <div class="container-map">
-      <!-- <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe> -->
+      <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
     </div>
   </div>
   <div class="container-next-step border-top-0 fade-up delay-1">
@@ -173,6 +173,101 @@
   </div>
 </div>
 <!-- step 2 artist -->
+
+<!-- step 3 artist -->
+<div class="" v-show="login.step === 3 && user.type === 'artist'">
+  <div class="text-align-center title">
+    <span class="h1 fade-up">Complete your registration</span>
+  </div>
+  <div class="head-steps-2 fade-up delay-1">
+    <div class="text-align-center">
+      <span class="h2">Artist</span>
+    </div>
+    <ul class="list-none container-steps container align-center">
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center disabled">
+          1
+        </div>
+        <span>Login info</span>
+      </li>
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center disabled">
+          2
+        </div>
+        <span>Personal info</span>
+      </li>
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center active">
+          3
+        </div>
+        <span>Professional info</span>
+      </li>
+    </ul>
+  </div>
+  <div class="container-login fade-up delay-1">
+    <div class="back-arrow">
+      <div class="link" @click="login.step = 2">
+        <i class="fas fa-angle-left"></i>
+        <span>Back</span>
+      </div>
+    </div>
+    <div class="container wrap align-center container-form margin-top-10">
+      <div class="flex-basis-200 flex-grow-1">
+        <p>Tattoo Style(s)</p>
+        <div class="group">
+          <input type="text" name="lastName" required v-model="user.tattoo.style">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Enter a tattoo style</label>
+        </div>
+      </div>
+
+      <div class="flex-basis-200 flex-grow-1">
+        <p>Work at any Studio?</p>
+        <div class="group">
+          <input type="text" name="lastName" required v-model="user.tattoo.studio">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Enter a tattoo studio</label>
+        </div>
+      </div>
+
+      <div class="group flex-basis-400">
+        <input type="text" name="lastName" required v-model="user.ager">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tell a little about the studio</label>
+        <div class="container justify-content-end">
+          <i>500 characters</i>
+        </div>
+      </div>
+
+    </div>
+    <div class="login-block full">
+        <div class="container wrap container-form align-items-end">
+          <div class="group flex-basis-200 flex-grow-1">
+            <input type="text" name="name" required v-model="user.firstName">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>@username</label>
+            <i class="fab btn-edit fa-instagram"></i>
+          </div>
+          <div class="flex-basis-200 flex-grow-1">
+            <p>Use your instagram profile to show your work. You can choose your favorite photos.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="container align-center column container-next-step fade-up delay-1">
+    <div class="margin-bottom-20">
+      <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
+    </div>
+    <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+    <span>or</span>
+    <a href="#">Skip this step</a>
+  </div>
+</div>
+<!-- step 3 artist -->
 
 <!-- step 2 studio -->
 <div class="" v-show="login.step === 2 && user.type === 'studio'">
@@ -253,7 +348,7 @@
       <i class="btn-edit fas fa-pen"></i>
     </div>
     <div class="container-map">
-      <!-- <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe> -->
+      <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
     </div>
     <div class="input-block input-check container align-center text-align-center border-map">
       <label for="">Available for guests?</label>
@@ -307,6 +402,73 @@
   </div>
 </div>
 <!-- step 2 studio -->
+
+<!-- step 3 artist -->
+<div class="" v-show="login.step === 3 && user.type === 'studio'">
+  <div class="text-align-center title">
+    <span class="h1 fade-up">Complete your registration</span>
+  </div>
+  <div class="head-steps-2 fade-up delay-1">
+    <div class="text-align-center">
+      <span class="h2">Studio</span>
+    </div>
+    <ul class="list-none container-steps container align-center">
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center disabled">
+          1
+        </div>
+        <span>Login info</span>
+      </li>
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center disabled">
+          2
+        </div>
+        <span>General info</span>
+      </li>
+      <li class="container align-center column text-align-center">
+        <div class="steps-ball container align-center active">
+          3
+        </div>
+        <span>Artists</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-login fade-up delay-1">
+    <div class="back-arrow">
+      <div class="link" @click="login.step = 2">
+        <i class="fas fa-angle-left"></i>
+        <span>Back</span>
+      </div>
+    </div>
+
+      <div class="margin-bottom-10">
+        <div class="text-align-center">
+          <label for="" class="h1">Add your artists profiles to your team</label>
+        </div>
+      </div>
+      <div class="workingtime-box container wrap">
+        <div class="group flex-basis-200 flex-grow-1">
+          <input type="text" name="from" required v-model="user.name">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Enter an artist name</label>
+          <i class="fas btn-edit fa-plus"></i>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="container align-center column container-next-step fade-up delay-1">
+    <div class="margin-bottom-20">
+      <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
+    </div>
+    <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+    <span>or</span>
+    <a href="#">Skip this step</a>
+  </div>
+</div>
+<!-- step 3 artist -->
 
 <!-- step 2 client -->
 <div class="" v-show="login.step === 2 && user.type === 'client'">
@@ -410,7 +572,7 @@
     <div class="margin-bottom-20">
       <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
     </div>
-    <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Next <i class="fas fa-angle-right"></i></button>
+    <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
     <span>or</span>
     <a href="#">Do it later</a>
   </div>
@@ -447,6 +609,10 @@ export default {
         time: {
           to: '08:00',
           from: '18:00'
+        },
+        tattoo: {
+          style: '',
+          studio: ''
         }
       }
     }

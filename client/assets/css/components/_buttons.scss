@@ -63,6 +63,9 @@ button[disabled] {
   border-color: $color-white;
   margin-left: 10px;
   min-width: 0;
+  i {
+    color: $color-white;
+  }
 }
 
 .btn-link {
@@ -79,4 +82,15 @@ button[disabled] {
 
 .btn-full {
   width: 100%;
+}
+
+.btn-find-map {
+  i {
+    color: $color-white;
+  }
+  &:hover {
+    i {
+      color: $color-light;
+    }
+  }
 }
