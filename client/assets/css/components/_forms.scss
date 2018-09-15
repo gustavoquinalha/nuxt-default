@@ -51,6 +51,7 @@
   border-radius: 30px;
   position: relative;
   transition: 0.3s;
+  cursor: pointer;
 
   &.yes {
     background: $color-primary;

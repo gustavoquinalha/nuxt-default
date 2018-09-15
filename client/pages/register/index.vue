@@ -214,21 +214,35 @@
     <div class="container wrap align-center container-form margin-top-10">
       <div class="flex-basis-200 flex-grow-1">
         <p>Tattoo Style(s)</p>
+        <ul class="list-none container wrap">
+          <li class="label" v-for="tattooStyle in tattooStyles" >
+            {{ tattooStyle.title }}
+            <i class="far fa-times-circle" @click="$emit('remove')"></i>
+          </li>
+        </ul>
         <div class="group">
-          <input type="text" name="lastName" required v-model="user.tattoo.style">
+          <input type="text" name="lastName" required v-model="newTattoStyle">
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Enter a tattoo style</label>
+          <i class="fas btn-edit fa-plus" @click="addNewTattoStyle()"></i>
         </div>
       </div>
 
       <div class="flex-basis-200 flex-grow-1">
         <p>Work at any Studio?</p>
+        <ul class="list-none container wrap">
+          <li class="label" v-for="studio in studios" >
+            {{ studio.title }}
+            <i class="far fa-times-circle" @click="$emit('remove')"></i>
+          </li>
+        </ul>
         <div class="group">
-          <input type="text" name="lastName" required v-model="user.tattoo.studio">
+          <input type="text" name="lastName" required v-model="newStudio">
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Enter a tattoo studio</label>
+          <i class="fas btn-edit fa-plus" @click="addStudio()"></i>
         </div>
       </div>
 
@@ -585,12 +599,13 @@
 
 <script>
 export default {
+  name: 'register',
   layout: 'sign',
   data() {
     return {
       send: false,
       login: {
-        step: 1,
+        step: 3,
         type: 'artist'
       },
       user: {
@@ -614,7 +629,24 @@ export default {
           style: '',
           studio: ''
         }
-      }
+      },
+      newTattoStyle: '',
+      tattooStyles: [{
+          id: 1,
+          title: 'Old School',
+        },
+        {
+          id: 2,
+          title: 'New School',
+        }
+      ],
+      nextTattoStyleID: 3,
+      newStudio: '',
+      studios: [{
+        id: 1,
+        title: 'Bernarti Studio',
+      }],
+      nextStudioID: 2,
     }
   },
   methods: {
@@ -633,6 +665,22 @@ export default {
 
     avatarUpload() {
       console.log('upload img');
+    },
+
+    addNewTattoStyle: function() {
+      this.tattooStyles.push({
+        id: this.nextTattoStyleID++,
+        title: this.newTattoStyle
+      })
+      this.newTattoStyle = ''
+    },
+
+    addStudio: function() {
+      this.studios.push({
+        id: this.nextStudioID++,
+        title: this.newStudio
+      })
+      this.newStudio = ''
     }
 
   }

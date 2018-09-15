@@ -37,7 +37,7 @@
 <script>
 import menuHome from '~/pages/components/home/menuHome.vue'
 
- export default {
+export default {
   components: {
     menuHome
   }
@@ -47,88 +47,88 @@ import menuHome from '~/pages/components/home/menuHome.vue'
 
 <style lang="scss" scoped>
 .arrow {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
     a {
-      font-size: 1.5rem;
-      color: $color-white;
-      transition: .3s;
-      opacity: .5;
+        font-size: 1.5rem;
+        color: $color-white;
+        transition: 0.3s;
+        opacity: 0.5;
         &:hover {
-          opacity: 1;
+            opacity: 1;
         }
     }
 }
 .header {
-  width: 100%;
-  min-height: 100vh;
-  background: $color-primary;
-  background: url('~/assets/img/home/header.png'), $color-primary;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: .3s;
+    width: 100%;
+    min-height: 100vh;
+    background: $color-primary;
+    background: url('~/assets/img/home/header.png'), $color-primary;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.3s;
     h1,
     p {
-      color: $color-white;
+        color: $color-white;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
+        font-size: 2.2rem;
+        margin-bottom: 15px;
     }
 }
 
 .header-block {
-  width: 95%;
-  max-width: 600px;
+    width: 95%;
+    max-width: 600px;
 }
 
 .header-content {
-  min-height: calc(100vh - 60px);
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .header-search {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .header-map {
-  margin-top: 5px;
-  a {
-    color: $color-white;
-    &:hover {
-      color: $color-light;
+    margin-top: 5px;
+    a {
+        color: $color-white;
+        &:hover {
+            color: $color-light;
+        }
+        .icon {
+            margin-right: 8px;
+        }
     }
-    .icon {
-      margin-right: 8px;
-    }
-  }
 }
 
 @media (max-width: 480px) {
-  .header {
-    background: $color-light;
-    h1,
-    p {
-      color: $color-dark;
+    .header {
+        background: $color-light;
+        h1,
+        p {
+            color: $color-dark;
+        }
     }
-  }
-  .header-map {
-    margin-top: 5px;
-    a {
-      color: $color-primary;
+    .header-map {
+        margin-top: 5px;
+        a {
+            color: $color-primary;
+        }
     }
-  }
-  .arrow {
-    a {
-      color: $color-primary
+    .arrow {
+        a {
+            color: $color-primary;
+        }
     }
-  }
 }
 </style>
