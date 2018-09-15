@@ -18,7 +18,8 @@
             </div>
 
             <div class="container align-center">
-              <button type="button" name="button" class="btn btn-primary btn-block" @click.prevent="login(user)">Register</button>
+              <!-- <button type="button" name="button" class="btn btn-primary btn-block" @click.prevent="login(user)">Enter</button> -->
+              <nuxt-link to="/logged/my-account" class="btn btn-primary btn-block">Enter</nuxt-link>
             </div>
           </form>
 

@@ -605,7 +605,7 @@ export default {
     return {
       send: false,
       login: {
-        step: 3,
+        step: 1,
         type: 'artist'
       },
       user: {

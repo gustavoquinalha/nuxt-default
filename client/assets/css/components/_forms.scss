@@ -101,10 +101,13 @@
   color: $color-white;
 }
 /* form starting stylings ------------------------------- */
+
 .container-form {
+  > div,
   .group {
     margin: 10px;
   }
+
 }
 
 .group {
@@ -255,3 +258,66 @@
   top: 15px;
   color: $color-primary;
 }
+
+// checkbox
+.container-check {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: $color-light-grey;
+  border: 1px solid $color-grey;
+  border-radius: $radius;
+}
+
+.container-check:hover input ~ .checkmark {
+  background-color: $color-grey;
+  transition: .3s;
+}
+
+.container-check input:checked ~ .checkmark {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.container-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container-check .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+// checkbox

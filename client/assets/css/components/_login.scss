@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.bg-light {
+  background: $color-light;
+}
+
 .content-login .title {
   margin-bottom: 20px;
 }
@@ -11,7 +15,7 @@
   font-size: 13px;
 }
 
-.content-login .tabs {
+.tabs {
   border-bottom: 1px solid $color-grey;
   margin-bottom: 30px;
   text-align: center;
@@ -19,7 +23,7 @@
   position: relative;
 }
 
-.content-login .tab-link {
+.tab-link {
   border-bottom: 2px solid transparent;
   height: 28px;
   box-sizing: border-box;
@@ -40,9 +44,14 @@
     color: $color-dark;
     border-color: $color-primary;
   }
+
+  &.tab-link-account {
+    flex-grow: 0;
+    flex-basis: 200px;
+  }
 }
 
-.content-login .tab-link span {
+.tab-link span {
   font-size: 13px;
 }
 
@@ -51,12 +60,12 @@
   max-width: 100%;
 }
 @media (max-width: 315px) {
-  .content-login .tabs {
+  .tabs {
     flex-direction: column;
     border-bottom: 0;
   }
 
-  .content-login .tab-link {
+  .tab-link {
     width: 100%;
     margin-bottom: 10px;
     border: 1px solid transparent;
@@ -65,7 +74,7 @@
     padding: 10px 20px;
   }
 
-  .content-login .tab-link.active {
+  .tab-link.active {
     border-color: $color-primary;
     border-radius: $radius;
   }

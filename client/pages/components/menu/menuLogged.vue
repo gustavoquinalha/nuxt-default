@@ -8,13 +8,12 @@
          </nuxt-link>
       </div>
 
-      <div class="menu-btn container">
-        <nuxt-link to="/login" class="btn btn-outline btn-margin-right">Login</nuxt-link>
-        <nuxt-link to="/register" class="btn">Register</nuxt-link>
-      </div>
+      <div class="menu-perfil container">
+        <nuxt-link to="/login" class="">
+          <div class="img-avatar">
 
-      <div class="menu-btn-responsive">
-        <nuxt-link to="/login" class="btn btn-outline"><i class="fas fa-sign-in-alt margin-right-5"></i>Enter</nuxt-link>
+          </div>
+        </nuxt-link>
       </div>
 
     </div>
@@ -28,5 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.img-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $color-primary;
+}
 </style>
