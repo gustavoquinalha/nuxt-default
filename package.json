@@ -5,7 +5,10 @@
   "repository": "https://github.com/turicas/worbink",
   "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
   "scripts": {
-    "dev": "babel src --out-dir dist && node dist/index.js"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
