@@ -6,7 +6,7 @@
   "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
   "scripts": {
     "dev": "babel src --out-dir dist && node dist/index.js",
-    "start": "nuxt build & nuxt start"
+    "start": "nuxt build --universal & nuxt start"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
