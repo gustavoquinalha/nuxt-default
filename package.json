@@ -8,25 +8,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "generate": "nuxt generate",
+    "spa": "nuxt build --spa",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.2.7",
-    "nuxt": "^1.4.2",
-    "nuxt-sass-resources-loader": "^2.0.4"
+    "@nuxtjs/auth": "^4.5.3",
+    "@nuxtjs/axios": "^5.3.6",
+    "nuxt": "^2.3.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-latest": "^6.24.1",
-    "coffee-loader": "^0.9.0",
-    "coffeescript": "^2.3.1",
-    "node-sass": "^4.9.3",
-    "pug": "^2.0.3",
-    "pug-plain-loader": "^1.0.0",
+    "node-sass": "^4.11.0",
+    "nuxt-sass-resources-loader": "^2.0.5",
     "sass-loader": "^7.1.0"
-  }
+  },
+  "license": "MIT"
 }

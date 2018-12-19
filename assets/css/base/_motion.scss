@@ -1,0 +1,37 @@
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {}
+}
+
+.fade-up {
+  animation: fade .3s backwards;
+}
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {}
+}
+
+.fade-up {
+  animation: fadeUp .3s backwards;
+}
+
+.fade {
+  animation: fade .3s backwards;
+}
+
+.delay-1 {
+  animation-delay: .1s;
+}
+
+.delay-2 {
+  animation-delay: .2s;
+}
+
+.delay-2 {
+  animation-delay: .3s;
+}
