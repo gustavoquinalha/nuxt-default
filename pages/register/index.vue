@@ -1,8 +1,11 @@
 <template lang="html">
   <div class="content-login">
     <div class="size margin">
+      <div>
+        {{ $store.state.error }}
+      </div>
       <!-- step 1 -->
-      <div class="" v-show="step === 1">
+      <div class="" v-if="step === 1">
         <div class="text-align-center title">
           <span class="h1 fade-up">Register</span>
         </div>
@@ -40,14 +43,8 @@
               <div class="container align-center">
                 <button
                   type="button"
-                  name="button"
                   class="btn btn-primary btn-block"
-                  @click="register({
-                    username: user.username,
-                    email: user.email,
-                    password: user.password,
-                    profileType
-                  })"
+                  @click="register(user)"
                 >Done!</button>
               </div>
             </form>
@@ -60,7 +57,7 @@
       <!-- step 1 -->
 
       <!-- step 2 artist -->
-      <div class="" v-show="step === 2 && profileType === 'artist'">
+      <div class="" v-else-if="step === 2 && profileType === 'artist'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -169,7 +166,11 @@
           </div>
         </div>
         <div class="container align-center column container-next-step fade-up delay-1">
-          <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Next <i class="fas fa-angle-right"></i></button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="update({ user, step: 3 })"
+          >Next <i class="fas fa-angle-right"></i></button>
           <span>or</span>
           <a href="#">Do it later</a>
         </div>
@@ -177,7 +178,7 @@
       <!-- step 2 artist -->
 
       <!-- step 3 artist -->
-      <div class="" v-show="step === 3 && profileType === 'artist'">
+      <div class="" v-else-if="step === 3 && profileType === 'artist'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -278,7 +279,11 @@
           <div class="margin-bottom-20">
             <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
           </div>
-          <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="update({ user, step: '/logged/my-account' })"
+          >Done!</button>
           <span>or</span>
           <a href="#">Skip this step</a>
         </div>
@@ -286,7 +291,7 @@
       <!-- step 3 artist -->
 
       <!-- step 2 studio -->
-      <div class="" v-show="step === 2 && profileType === 'studio'">
+      <div class="" v-else-if="step === 2 && profileType === 'studio'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -412,15 +417,19 @@
           </div>
         </div>
         <div class="container align-center column container-next-step fade-up delay-1">
-          <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Next <i class="fas fa-angle-right"></i></button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="update({ user, step: 3 })"
+          >Next <i class="fas fa-angle-right"></i></button>
           <span>or</span>
           <a href="#">Do it later</a>
         </div>
       </div>
       <!-- step 2 studio -->
 
-      <!-- step 3 artist -->
-      <div class="" v-show="step === 3 && profileType === 'studio'">
+      <!-- step 3 studio -->
+      <div class="" v-else-if="step === 3 && profileType === 'studio'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -479,15 +488,19 @@
           <div class="margin-bottom-20">
             <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
           </div>
-          <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="update({ user, step: '/logged/my-account' })"
+          >Done!</button>
           <span>or</span>
           <a href="#">Skip this step</a>
         </div>
       </div>
-      <!-- step 3 artist -->
+      <!-- step 3 studio -->
 
       <!-- step 2 client -->
-      <div class="" v-show="step === 2 && profileType === 'client'">
+      <div class="" v-else-if="step === 2 && profileType === 'client'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -588,13 +601,16 @@
           <div class="margin-bottom-20">
             <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
           </div>
-          <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            @click="update({ user, step: '/logged/my-account' })"
+          >Done!</button>
           <span>or</span>
           <a href="#">Do it later</a>
         </div>
       </div>
       <!-- step 2 client -->
-
     </div>
   </div>
 </template>
@@ -609,15 +625,14 @@ export default {
       profileType: context.query.type
     }
   },
-
   data() {
     return {
       user: {
-        type: "artist",
-        name: "",
-        email: "",
-        password: "",
-        image: "",
+        username: '',
+        profileType: 'artist',
+        email: '',
+        password: '',
+        picture: '',
         firstName: "",
         lastName: "",
         gender: "",
@@ -656,6 +671,7 @@ export default {
       nextStudioID: 2
     };
   },
+
   computed: {
     step: {
       get() {
@@ -667,28 +683,13 @@ export default {
     }
   },
   methods: {
+
     ...mapActions({
-      register: 'account/register'
+      register: 'account/register',
+      update: 'account/update'
     }),
-    submitRegister() {
-      if (this.step === 1) {
-        this.step = 2;
-        console.log("register");
-      } else if (this.step === 2) {
-        this.step = 3;
-        console.log("Complete your registration");
-        if (this.profileType === "client") {
-          this.$router.replace({ path: "/logged/my-account" });
-        }
-      } else if (this.step === 3) {
-        this.step = 4;
-        console.log("done");
-        this.$router.replace({ path: "/logged/my-account" });
-      }
-    },
 
     avatarUpload() {
-      console.log("upload img");
     },
 
     addNewTattoStyle: function() {

@@ -3,13 +3,13 @@
   <div class="size margin">
     <div class="menu-container container wrap align-items-center justify-content-between">
       <div class="menu-logo">
-         <nuxt-link to="/">
+        <nuxt-link to="/">
            <img src="~/assets/img/logo.png" class="logo" alt="" />
          </nuxt-link>
       </div>
 
       <div class="menu-perfil container">
-        <nuxt-link to="/login" class="">
+        <nuxt-link to="#" @click.native="logout">
           <div class="img-avatar">
 
           </div>
@@ -22,7 +22,13 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
+  methods: {
+    ...mapActions({
+      logout: 'account/logout'
+    })
+  }
 }
 </script>
 

@@ -1,5 +1,3 @@
-process.env.DEBUG = 'nuxt:*'
-
 module.exports = {
   loading: {
     color: '#f48c39'
@@ -28,15 +26,24 @@ module.exports = {
     baseURL: process.env.API_URL
   },
   auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      // disable redirect
+      home: '/logged/my-account'
+    },
     strategies: {
       local: {
         endpoints: {
           login: { url: '/auth/local', method: 'post', propertyName: 'jwt' },
-          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/users/me', method: 'get', propertyName: false }
           // login: { url: '/login', method: 'post', propertyName: 'token' },
           // logout: { url: '/logout', method: 'post' },
-          user: { url: '/me', method: 'get', propertyName: false }
-        }
+          // user: { url: '/me', method: 'get', propertyName: false }
+        },
+        tokenRequired: true,
+        tokenType: 'bearer'
       }
     }
   }

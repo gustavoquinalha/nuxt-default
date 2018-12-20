@@ -147,6 +147,7 @@
 <script>
 export default {
   layout: 'logged',
+  middleware: 'auth',
   data() {
     return {
       tabActive: 'privacy',

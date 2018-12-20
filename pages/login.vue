@@ -7,6 +7,10 @@
       <div class="container-login fade-up delay-1">
         <div class="login-block">
           <form class="">
+            <div>
+              {{ $store.state.error }}
+            </div>
+
             <div class="input-block-inline">
               <label for=""><i class="fas fa-user"></i></label>
               <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.identifier">
