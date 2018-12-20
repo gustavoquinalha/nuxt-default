@@ -36,7 +36,7 @@ export default {}
 <style lang="scss" scoped>
 .footer {
   padding-top: 50px;
-  background: $color-light;
+  // background: $color-light;
 }
 
 .logo {

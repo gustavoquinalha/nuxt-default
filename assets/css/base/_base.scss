@@ -9,6 +9,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;
+  background: linear-gradient(to bottom, $color-light,  #e9d9e9);
 }
 
 .size {
@@ -68,4 +69,20 @@ html {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.color-primary {
+  color: $color-primary;
+}
+
+.background-primary {
+  background: $color-primary;
+}
+
+.color-white {
+  color: $color-white;
+}
+
+.background-white {
+  background: $color-white;
 }

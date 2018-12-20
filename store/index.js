@@ -1,5 +1,6 @@
 export const state = () => ({
-  error: ''
+  error: '',
+  step: 1
 })
 
 export const getters = {
@@ -8,6 +9,9 @@ export const getters = {
 export const mutations = {
   SET_ERROR(state, error) {
     state.error = error
+  },
+  setStep(state, step) {
+    state.step = step
   }
 }
 

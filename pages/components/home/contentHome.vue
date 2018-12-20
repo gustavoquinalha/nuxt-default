@@ -17,7 +17,7 @@
           <p>Enjoy the experience and bring different artists as a guest for yout studio.</p>
         </div>
         <div class="card-btn">
-          <button type="button" name="button" class="btn">Register now</button>
+          <nuxt-link to="/register?type=studio" class="btn">Register now</nuxt-link>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           <p>Book with the best studios in the right place around the world.</p>
         </div>
         <div class="card-btn">
-          <button type="button" name="button" class="btn">Register now</button>
+          <nuxt-link to="/register?type=artist" class="btn">Register now</nuxt-link>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
           <p>Follow your preferer tattoo artist and see where he will be tattooing.</p>
         </div>
         <div class="card-btn">
-          <button type="button" name="button" class="btn">Register now</button>
+          <nuxt-link to="/register?type=client" class="btn">Register now</nuxt-link>
         </div>
       </div>
 
@@ -83,15 +83,15 @@ export default {
 }
 
 .card-img_studio {
-  background: url('~assets/img/home/studio.png'), $color-primary;
+  background: url('~/assets/img/home/studio.png'), $color-primary;
 }
 
 .card-img_artist {
-  background: url('~assets/img/home/artist.png'), $color-primary;
+  background: url('~/assets/img/home/artist.png'), $color-primary;
 }
 
 .card-img_client {
-  background: url('~assets/img/home/client.png'), $color-primary;
+  background: url('~/assets/img/home/client.png'), $color-primary;
 }
 
 .card-img_studio,

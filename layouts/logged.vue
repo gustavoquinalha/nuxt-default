@@ -1,5 +1,5 @@
 <template>
-<div class="bg-light">
+<div class="bg-gradient">
   <menuLogged />
   <nuxt></nuxt>
   <footerHome/>
