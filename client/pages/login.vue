@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="text-align-center margin-top-20 fade-up delay-2">
-        <p>Don't have an account? Register <nuxt-link to="/register">HERE</nuxt-link></p>
+        <p>Don't have an account? Register <nuxt-link to="/register?type=artist">HERE</nuxt-link></p>
       </div>
     </div>
   </div>

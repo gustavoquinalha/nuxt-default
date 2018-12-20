@@ -30,7 +30,6 @@
 
 <style lang="scss">
 .content-about {
-  background: $color-light;
   min-height: calc(100vh - 60px - 250px);
   padding: 50px 0;
 }

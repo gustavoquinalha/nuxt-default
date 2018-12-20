@@ -3,7 +3,7 @@
     <div class="size margin">
       <pre v-show="send">
         {{login.step}}
-        {{user.type}}
+        {{type}}
         {{user}}
       </pre>
 <!-- step 1 -->
@@ -15,13 +15,13 @@
       <div class="login-block">
         <p class="margin-bottom-20">Choose a profile a type:</p>
         <ul class="tabs container align-center wrap justify-content-around">
-          <li class="tab-link" :class="{active :  user.type === 'studio'}" @click="user.type = 'studio'">
+          <li class="tab-link" :class="{active :  type === 'studio'}" @click="type = 'studio'">
             <span>Studio</span>
           </li>
-          <li class="tab-link" :class="{active :  user.type === 'artist'}" @click="user.type = 'artist'">
+          <li class="tab-link" :class="{active :  type === 'artist'}" @click="type = 'artist'">
             <span>Artist</span>
           </li>
-          <li class="tab-link" :class="{active :  user.type === 'client'}" @click="user.type = 'client'">
+          <li class="tab-link" :class="{active :  type === 'client'}" @click="type = 'client'">
             <span>Client</span>
           </li>
         </ul>
@@ -58,7 +58,7 @@
 <!-- step 1 -->
 
 <!-- step 2 artist -->
-<div class="" v-show="login.step === 2 && user.type === 'artist'">
+<div class="" v-show="login.step === 2 && type === 'artist'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -175,7 +175,7 @@
 <!-- step 2 artist -->
 
 <!-- step 3 artist -->
-<div class="" v-show="login.step === 3 && user.type === 'artist'">
+<div class="" v-show="login.step === 3 && type === 'artist'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -284,7 +284,7 @@
 <!-- step 3 artist -->
 
 <!-- step 2 studio -->
-<div class="" v-show="login.step === 2 && user.type === 'studio'">
+<div class="" v-show="login.step === 2 && type === 'studio'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -418,7 +418,7 @@
 <!-- step 2 studio -->
 
 <!-- step 3 artist -->
-<div class="" v-show="login.step === 3 && user.type === 'studio'">
+<div class="" v-show="login.step === 3 && type === 'studio'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -485,7 +485,7 @@
 <!-- step 3 artist -->
 
 <!-- step 2 client -->
-<div class="" v-show="login.step === 2 && user.type === 'client'">
+<div class="" v-show="login.step === 2 && type === 'client'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -599,92 +599,106 @@
 
 <script>
 export default {
-  name: 'register',
-  layout: 'sign',
+  name: "register",
+  layout: "sign",
+
+  asyncData(context) {
+    console.log(context);
+    return {
+      type: context.query.type
+    };
+  },
+
   data() {
     return {
       send: false,
       login: {
         step: 1,
-        type: 'artist'
+        type: "artist"
       },
       user: {
-        type: 'artist',
-        name: '',
-        email: '',
-        password: '',
-        image: '',
-        firstName: '',
-        lastName: '',
-        gender: '',
-        age: '',
-        location: '',
+        type: "artist",
+        name: "",
+        email: "",
+        password: "",
+        image: "",
+        firstName: "",
+        lastName: "",
+        gender: "",
+        age: "",
+        location: "",
         availableTravelling: true,
         availableGuest: true,
         time: {
-          to: '08:00',
-          from: '18:00'
+          to: "08:00",
+          from: "18:00"
         },
         tattoo: {
-          style: '',
-          studio: ''
+          style: "",
+          studio: ""
         }
       },
-      newTattoStyle: '',
-      tattooStyles: [{
+      newTattoStyle: "",
+      tattooStyles: [
+        {
           id: 1,
-          title: 'Old School',
+          title: "Old School"
         },
         {
           id: 2,
-          title: 'New School',
+          title: "New School"
         }
       ],
       nextTattoStyleID: 3,
-      newStudio: '',
-      studios: [{
-        id: 1,
-        title: 'Bernarti Studio',
-      }],
-      nextStudioID: 2,
-    }
+      newStudio: "",
+      studios: [
+        {
+          id: 1,
+          title: "Bernarti Studio"
+        }
+      ],
+      nextStudioID: 2
+    };
   },
   methods: {
     submitRegister() {
       if (this.login.step === 1) {
         this.login.step = 2;
-        console.log('register');
+        console.log("register");
       } else if (this.login.step === 2) {
         this.login.step = 3;
-        console.log('Complete your registration');
+        console.log("Complete your registration");
+        if (this.type === "client") {
+          this.$router.replace({ path: "/logged/my-account" });
+        }
       } else if (this.login.step === 3) {
         this.login.step = 4;
-        console.log('Complete your registration');
+        console.log("done");
+        this.$router.replace({ path: "/logged/my-account" });
       }
     },
 
     avatarUpload() {
-      console.log('upload img');
+      console.log("upload img");
     },
 
     addNewTattoStyle: function() {
       this.tattooStyles.push({
         id: this.nextTattoStyleID++,
         title: this.newTattoStyle
-      })
-      this.newTattoStyle = ''
+      });
+      this.newTattoStyle = "";
     },
 
     addStudio: function() {
       this.studios.push({
         id: this.nextStudioID++,
         title: this.newStudio
-      })
-      this.newStudio = ''
+      });
+      this.newStudio = "";
     }
-
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -24,7 +24,7 @@
 
 <style lang="scss">
 .content-login {
-  background: $color-light;
+  // background: $color-light;
   min-height: calc(100vh - 60px - 250px);
   padding: 50px 0;
 }

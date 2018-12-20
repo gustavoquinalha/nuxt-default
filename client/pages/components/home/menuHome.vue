@@ -10,7 +10,7 @@
 
       <div class="menu-btn container">
         <nuxt-link to="/login" class="btn btn-outline btn-margin-right">Login</nuxt-link>
-        <nuxt-link to="/register" class="btn">Register</nuxt-link>
+        <nuxt-link to="/register?type=artist" class="btn">Register</nuxt-link>
       </div>
 
       <div class="menu-btn-responsive">
