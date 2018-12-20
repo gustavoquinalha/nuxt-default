@@ -68,7 +68,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   background: $color-primary;
-  background: url("~/assets/img/home/header.png"), $color-primary;
+  background: url("~assets/img/home/header.png"), $color-primary;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

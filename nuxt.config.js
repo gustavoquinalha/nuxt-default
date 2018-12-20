@@ -1,8 +1,5 @@
 process.env.DEBUG = 'nuxt:*'
 
-console.log(process.env.API_URL)
-console.log(process.env.DEBUG)
-
 module.exports = {
   loading: {
     color: '#f48c39'
@@ -34,7 +31,7 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/auth/local', method: 'post', propertyName: 'token' },
+          login: { url: '/auth/local', method: 'post', propertyName: 'jwt' },
           logout: { url: '/auth/logout', method: 'post' },
           // login: { url: '/login', method: 'post', propertyName: 'token' },
           // logout: { url: '/logout', method: 'post' },

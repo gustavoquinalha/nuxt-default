@@ -51,9 +51,6 @@
                 >Done!</button>
               </div>
             </form>
-            <pre v-show="send">
-              {{user}}
-            </pre>
           </div>
         </div>
         <div class="text-align-center margin-top-20 fade-up delay-2">
