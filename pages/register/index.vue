@@ -3,7 +3,7 @@
     <div class="size margin">
       <pre v-show="send">
         {{login.step}}
-        {{user.type}}
+        {{profileType}}
         {{user}}
       </pre>
 <!-- step 1 -->
@@ -15,13 +15,13 @@
       <div class="login-block">
         <p class="margin-bottom-20">Choose a profile a type:</p>
         <ul class="tabs container align-center wrap justify-content-around">
-          <li class="tab-link" :class="{active :  user.type === 'studio'}" @click="user.type = 'studio'">
+          <li class="tab-link" :class="{active :  profileType === 'studio'}" @click="profileType = 'studio'">
             <span>Studio</span>
           </li>
-          <li class="tab-link" :class="{active :  user.type === 'artist'}" @click="user.type = 'artist'">
+          <li class="tab-link" :class="{active :  profileType === 'artist'}" @click="profileType = 'artist'">
             <span>Artist</span>
           </li>
-          <li class="tab-link" :class="{active :  user.type === 'client'}" @click="user.type = 'client'">
+          <li class="tab-link" :class="{active :  profileType === 'client'}" @click="profileType = 'client'">
             <span>Client</span>
           </li>
         </ul>
@@ -29,7 +29,7 @@
         <form class="">
           <div class="input-block-inline">
             <label for=""><i class="fas fa-user"></i></label>
-            <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.name">
+            <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.username">
           </div>
 
           <div class="input-block-inline">
@@ -43,7 +43,17 @@
           </div>
 
           <div class="container align-center">
-            <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Register</button>
+            <button
+              type="button"
+              name="button"
+              class="btn btn-primary btn-block"
+              @click="register({
+                username: user.username,
+                email: user.email,
+                password: user.password,
+                profileType
+              })"
+            >Done!</button>
           </div>
         </form>
         <pre v-show="send">
@@ -58,7 +68,7 @@
 <!-- step 1 -->
 
 <!-- step 2 artist -->
-<div class="" v-show="login.step === 2 && user.type === 'artist'">
+<div class="" v-show="login.step === 2 && profileType === 'artist'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -175,7 +185,7 @@
 <!-- step 2 artist -->
 
 <!-- step 3 artist -->
-<div class="" v-show="login.step === 3 && user.type === 'artist'">
+<div class="" v-show="login.step === 3 && profileType === 'artist'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -284,7 +294,7 @@
 <!-- step 3 artist -->
 
 <!-- step 2 studio -->
-<div class="" v-show="login.step === 2 && user.type === 'studio'">
+<div class="" v-show="login.step === 2 && profileType === 'studio'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -418,7 +428,7 @@
 <!-- step 2 studio -->
 
 <!-- step 3 artist -->
-<div class="" v-show="login.step === 3 && user.type === 'studio'">
+<div class="" v-show="login.step === 3 && profileType === 'studio'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -463,7 +473,7 @@
       </div>
       <div class="workingtime-box container wrap">
         <div class="group flex-basis-200 flex-grow-1">
-          <input type="text" name="from" required v-model="user.name">
+          <input type="text" name="from" required v-model="user.username">
           <span class="highlight"></span>
           <span class="bar"></span>
           <label>Enter an artist name</label>
@@ -485,7 +495,7 @@
 <!-- step 3 artist -->
 
 <!-- step 2 client -->
-<div class="" v-show="login.step === 2 && user.type === 'client'">
+<div class="" v-show="login.step === 2 && profileType === 'client'">
   <div class="text-align-center title">
     <span class="h1 fade-up">Complete your registration</span>
   </div>
@@ -586,7 +596,16 @@
     <div class="margin-bottom-20">
       <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
     </div>
-    <button type="button" name="button" class="btn btn-primary btn-block" @click="submitRegister()">Done!</button>
+    <button
+      type="button"
+      name="button"
+      class="btn btn-primary btn-block"
+      @click="register({
+        username,
+        email,
+        password
+      })"
+    >Done!</button>
     <span>or</span>
     <a href="#">Do it later</a>
   </div>
@@ -598,11 +617,13 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'register',
   layout: 'sign',
   data() {
     return {
+      profileType: 'artist',
       send: false,
       login: {
         step: 1,
@@ -610,7 +631,7 @@ export default {
       },
       user: {
         type: 'artist',
-        name: '',
+        username: '',
         email: '',
         password: '',
         image: '',
@@ -650,6 +671,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      register: 'account/register'
+    }),
+
     submitRegister() {
       if (this.login.step === 1) {
         this.login.step = 2;

@@ -5,10 +5,10 @@
   "repository": "https://github.com/turicas/worbink",
   "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "cross-env API_URL=http://localhost:1337/ nuxt",
+    "build": "nuxt build --modern",
+    "start": "nuxt start --modern",
+    "generate": "nuxt generate --modern",
     "spa": "nuxt build --spa",
     "heroku-postbuild": "npm run build"
   },
@@ -18,6 +18,7 @@
     "nuxt": "^2.3.4"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "node-sass": "^4.11.0",
     "nuxt-sass-resources-loader": "^2.0.5",
     "sass-loader": "^7.1.0"

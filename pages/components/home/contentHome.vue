@@ -83,15 +83,15 @@ export default {
 }
 
 .card-img_studio {
-  background: url('~/assets/img/home/studio.png'), $color-primary;
+  background: url('~assets/img/home/studio.png'), $color-primary;
 }
 
 .card-img_artist {
-  background: url('~/assets/img/home/artist.png'), $color-primary;
+  background: url('~assets/img/home/artist.png'), $color-primary;
 }
 
 .card-img_client {
-  background: url('~/assets/img/home/client.png'), $color-primary;
+  background: url('~assets/img/home/client.png'), $color-primary;
 }
 
 .card-img_studio,

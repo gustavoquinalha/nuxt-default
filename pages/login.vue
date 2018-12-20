@@ -9,7 +9,7 @@
           <form class="">
             <div class="input-block-inline">
               <label for=""><i class="fas fa-user"></i></label>
-              <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.name">
+              <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.identifier">
             </div>
 
             <div class="input-block-inline">
@@ -18,14 +18,9 @@
             </div>
 
             <div class="container align-center">
-              <!-- <button type="button" name="button" class="btn btn-primary btn-block" @click.prevent="login(user)">Enter</button> -->
-              <nuxt-link to="/logged/my-account" class="btn btn-primary btn-block">Enter</nuxt-link>
+              <button type="button" name="button" class="btn btn-primary btn-block" @click.prevent="login(user)">Enter</button>
             </div>
           </form>
-
-          <pre v-show="send">
-            {{user}}
-          </pre>
         </div>
       </div>
       <div class="text-align-center margin-top-20 fade-up delay-2">
@@ -42,17 +37,16 @@ export default {
   layout: 'sign',
   data() {
     return {
-      send: false,
-      login: {
-        type: 'artist'
-      },
       user: {
-        type: 'artist',
-        name: '',
-        email: '',
+        identifier: '',
         password: ''
       }
     }
+  },
+  methods: {
+    ...mapActions({
+      login: 'account/login'
+    })
   }
 }
 </script>
