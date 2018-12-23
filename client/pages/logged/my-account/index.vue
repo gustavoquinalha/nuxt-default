@@ -18,30 +18,17 @@
     <li class="tab-link tab-link-account" :class="{active :  tabActive === 'privacy'}" @click="tabActive = 'privacy'">
       <span>Privacy</span>
     </li>
-    <li class="tab-link tab-link-account" :class="{active :  tabActive === 'messages'}" @click="tabActive = 'messages'">
+    <!-- <li class="tab-link tab-link-account" :class="{active :  tabActive === 'messages'}" @click="tabActive = 'messages'">
       <span>Messages (1)</span>
-    </li>
+    </li> -->
   </ul>
 
   <div class="fade delay-2">
     <!-- tab my profiles  -->
     <div class="fade-up" v-show="tabActive === 'my-profile'">
-      <div class="box-content">
-        <div class="content-size">
-          <div class="title text-align-center">
-            <span class="h2">My profile</span>
-          </div>
-          <div class="sub-title">
-            <p>Worbink is a tool to connect people around the world throught a business network foccused in experience exchange. With that in mind, different kinds of profile(Clients, Artists and Studios) may want to contact you, that's why we respect your privacy.</p>
-          </div>
-        </div>
-        <hr class="hr">
-      </div>
-      <div class="container align-center column container-btn-save">
-        <button type="button" name="button" class="btn btn-primary btn-block">Save</button>
-        <span>or</span>
-        <a href="#">Cancel</a>
-      </div>
+      <myProfile>
+      </myProfile>
+      
     </div>
     <!-- tab my profiles  -->
 
@@ -145,30 +132,34 @@
 </template>
 
 <script>
+import myProfile from "~/pages/logged/my-account/my-profile.vue";
 export default {
-  layout: 'logged',
+  layout: "logged",
+  components: {
+    myProfile
+  },
   data() {
     return {
-      tabActive: 'privacy',
+      tabActive: "my-profile",
       whoSendMessages: [],
       notifications: []
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
 .my-account {
-    .tab-link span {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: $color-primary;
-        &:hover {
-            color: $color-secundary;
-        }
+  .tab-link span {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $color-primary;
+    &:hover {
+      color: $color-secundary;
     }
-    .tab-link.active span {
-        color: $color-dark;
-    }
+  }
+  .tab-link.active span {
+    color: $color-dark;
+  }
 }
 </style>
