@@ -59,7 +59,7 @@
   width: 400px;
   max-width: 100%;
 }
-@media (max-width: 315px) {
+@media (max-width: 768px) {
   .tabs {
     flex-direction: column;
     border-bottom: 0;
@@ -77,6 +77,10 @@
   .tab-link.active {
     border-color: $color-primary;
     border-radius: $radius;
+  }
+
+  .tab-link.tab-link-account {
+    flex-basis: auto
   }
 }
 

@@ -100,10 +100,12 @@
   left: 10px;
   color: $color-white;
 }
+
 /* form starting stylings ------------------------------- */
 
 .container-form {
-  > div,
+
+  >div,
   .group {
     margin: 10px;
   }
@@ -114,6 +116,7 @@
   position: relative;
   margin-bottom: 20px;
 
+  textarea,
   input,
   select {
     font-size: 13px;
@@ -125,10 +128,12 @@
     border-bottom: 1px solid $color-grey;
   }
 
+  textarea,
   input:focus,
   select:focus {
     outline: none;
   }
+
   /* LABEL ======================================= */
   label {
     color: $color-grey;
@@ -142,15 +147,19 @@
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
   }
+
   /* active state */
-  input:focus ~ label,
-  input:valid ~ label,
-  select:focus ~ label,
-  select:valid ~ label {
+  textarea:focus~label,
+  textarea:valid~label,
+  input:focus~label,
+  input:valid~label,
+  select:focus~label,
+  select:valid~label {
     top: -10px;
     font-size: 14px;
     color: $color-primary;
   }
+
   /* BOTTOM BARS ================================= */
   .bar {
     position: relative;
@@ -178,13 +187,17 @@
   .bar:after {
     right: 50%;
   }
+
   /* active state */
-  input:focus ~ .bar:after,
-  input:focus ~ .bar:before,
-  select:focus ~ .bar:after,
-  select:focus ~ .bar:before {
+  textarea:focus~.bar:after,
+  textarea:focus~.bar:before,
+  input:focus~.bar:after,
+  input:focus~.bar:before,
+  select:focus~.bar:after,
+  select:focus~.bar:before {
     width: 50%;
   }
+
   /* HIGHLIGHTER ================================== */
   .highlight {
     position: absolute;
@@ -195,13 +208,16 @@
     pointer-events: none;
     opacity: 0.5;
   }
+
   /* active state */
-  input:focus ~ .highlight,
-  select:focus ~ .highlight {
+  textarea:focus~.highlight,
+  input:focus~.highlight,
+  select:focus~.highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;
   }
+
   /* ANIMATIONS ================ */
   @-webkit-keyframes inputHighlighter {
     from {
@@ -213,6 +229,7 @@
       background: transparent;
     }
   }
+
   @-moz-keyframes inputHighlighter {
     from {
       background: $color-primary;
@@ -223,6 +240,7 @@
       background: transparent;
     }
   }
+
   @keyframes inputHighlighter {
     from {
       background: $color-primary;
@@ -289,12 +307,12 @@
   border-radius: $radius;
 }
 
-.container-check:hover input ~ .checkmark {
+.container-check:hover input~.checkmark {
   background-color: $color-grey;
   transition: .3s;
 }
 
-.container-check input:checked ~ .checkmark {
+.container-check input:checked~.checkmark {
   background-color: $color-primary;
   border-color: $color-primary;
 }
@@ -305,7 +323,7 @@
   display: none;
 }
 
-.container-check input:checked ~ .checkmark:after {
+.container-check input:checked~.checkmark:after {
   display: block;
 }
 
@@ -320,4 +338,5 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 // checkbox
