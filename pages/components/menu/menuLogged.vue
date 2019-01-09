@@ -11,7 +11,7 @@
       <div class="menu-dropdown">
         <div class="dropdown container">
           <div class="img-avatar">
-            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTAyNTAzMTA4OTJeQTJeQWpwZ15BbWU3MDA4NDI2Njk@._V1_UX172_CR0,0,172,256_AL_.jpg">
+            <img :src="$store.getters['account/pictureUrl']">
           </div>
           <div class="dropdown-content" style="width: 160px;">
             <div class="dropdown-block">

@@ -1,10 +1,10 @@
 <template lang="html">
 <div>
   <div class="container-picture">
-    <input type="file" id="profilePicture" class="hidden">
+    <input type="file" id="profilePicture" class="hidden" @change="fileChange">
     <label for="profilePicture">
       <div class="profile-picture">
-        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTAyNTAzMTA4OTJeQTJeQWpwZ15BbWU3MDA4NDI2Njk@._V1_UX172_CR0,0,172,256_AL_.jpg">
+        <img :src="$store.getters['account/pictureUrl']">
       </div>
       <span>Change profile photo</span>
     </label>
@@ -239,6 +239,10 @@ export default {
         title: this.newTattoStyle
       });
       this.newTattoStyle = "";
+    },
+
+    fileChange(event) {
+      this.$store.dispatch('account/uploadProfilePic', event.target.files[0])
     }
   }
 };

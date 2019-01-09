@@ -138,6 +138,7 @@ export default {
   components: {
     myProfile
   },
+  middleware: 'auth',
   data() {
     return {
       tabActive: "my-profile",
