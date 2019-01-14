@@ -132,7 +132,7 @@
 </template>
 
 <script>
-import myProfile from "~/pages/logged/my-account/my-profile.vue";
+import myProfile from "@/components/my-profile.vue";
 export default {
   layout: "logged",
   components: {

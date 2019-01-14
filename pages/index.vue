@@ -7,9 +7,9 @@
 </template>
 
 <script>
- import headerHome from '~/pages/components/home/headerHome.vue'
- import contentHome from '~/pages/components/home/contentHome.vue'
- import footerHome from '~/pages/components/home/footerHome.vue'
+ import headerHome from '@/components/home/headerHome.vue'
+ import contentHome from '@/components/home/contentHome.vue'
+ import footerHome from '@/components/home/footerHome.vue'
 
  export default {
   components: {

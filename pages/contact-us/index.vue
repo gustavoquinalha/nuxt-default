@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import tabContent from '~/pages/components/about/tab.vue'
+import tabContent from '@/components/about/tab.vue'
 
 export default {
   components: {

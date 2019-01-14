@@ -13,8 +13,8 @@
 </template>
 
 <script>
-   import menuHome from '~/pages/components/home/menuHome.vue'
-   import footerHome from '~/pages/components/home/footerHome.vue'
+   import menuHome from '@/components/home/menuHome.vue'
+   import footerHome from '@/components/home/footerHome.vue'
    export default {
     components: {
       menuHome,

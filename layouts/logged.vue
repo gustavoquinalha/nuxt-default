@@ -7,8 +7,8 @@
 </template>
 
 <script>
-   import menuLogged from '~/pages/components/menu/menuLogged.vue'
-   import footerHome from '~/pages/components/home/footerHome.vue'
+   import menuLogged from '@/components/menu/menuLogged.vue'
+   import footerHome from '@/components/home/footerHome.vue'
    export default {
     components: {
       menuLogged,

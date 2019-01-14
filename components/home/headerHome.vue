@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import menuHome from "~/pages/components/home/menuHome.vue";
+import menuHome from "@/components/home/menuHome.vue";
 
 export default {
   components: {

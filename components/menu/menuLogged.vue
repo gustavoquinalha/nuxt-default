@@ -17,7 +17,7 @@
             <div class="dropdown-block">
               <ul class="list-none">
                 <li>
-                  <nuxt-link to="/" class="dropdown-item">
+                  <nuxt-link to="/logged/my-account" class="dropdown-item">
                   My account
                   </nuxt-link>
                 </li>
