@@ -97,7 +97,10 @@
         <i class="btn-edit fas fa-pen"></i>
       </div>
       <div class="container-map">
-        <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
+        <no-ssr>
+          <maps/>
+        </no-ssr>
+        <!-- <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe> -->
       </div>
       <div class="padding-16">
         <div class="input-block input-check container align-center text-align-center">
@@ -175,7 +178,11 @@
 </template>
 
 <script>
+import maps from '@/components/maps'
 export default {
+  components: {
+    maps
+  },
   data() {
     return {
       user: {

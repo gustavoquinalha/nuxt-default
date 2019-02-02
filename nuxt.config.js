@@ -46,5 +46,11 @@ module.exports = {
         tokenType: 'bearer'
       }
     }
+  },
+  plugins: [
+    { src: '~/plugins/vue2-google-maps', ssr: false }
+  ],
+  build: {
+    transpile: [/^vue2-google-maps($|\/)/]
   }
 }
