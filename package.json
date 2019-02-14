@@ -6,24 +6,27 @@
   "author": "Gustavo Quinalha <gusquinalha@gmail.com>",
   "scripts": {
     "dev": "cross-env API_URL=http://localhost:1337/ nuxt",
-    "build": "nuxt build --modern",
-    "start": "nuxt start --modern",
-    "generate": "nuxt generate --modern",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
     "spa": "nuxt build --spa",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.5.3",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/style-resources": "^0.1.2",
     "core-js": "^2.6.2",
     "lodash": "^4.17.11",
-    "nuxt": "^2.3.4",
-    "vue2-google-maps": "^0.10.5"
+    "nuxt": "^2.4.3",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "sass-resources-loader": "^2.0.0",
+    "vue2-google-maps": "^0.10.5",
+    "webpack-bundle-analyzer": "^3.0.4"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
     "node-sass": "^4.11.0",
-    "nuxt-sass-resources-loader": "^2.0.5",
     "sass-loader": "^7.1.0"
   },
   "license": "MIT"

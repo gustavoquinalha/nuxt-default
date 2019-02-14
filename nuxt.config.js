@@ -21,9 +21,14 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-
-    ['nuxt-sass-resources-loader', '@/assets/css/base/_variables.scss']
+    '@nuxtjs/style-resources'
+    // , ['nuxt-sass-resources-loader', '@/assets/css/base/_variables.scss']
   ],
+  styleResources: {
+    scss: [
+      'assets/css/base/_variables.scss'
+    ]
+  },
   axios: {
     baseURL: process.env.API_URL
   },
