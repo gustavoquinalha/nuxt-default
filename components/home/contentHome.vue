@@ -17,7 +17,7 @@
           <p>Enjoy the experience and bring different artists as a guest for yout studio.</p>
         </div>
         <div class="card-btn">
-          <nuxt-link to="/register?type=studio" class="btn">Register now</nuxt-link>
+          <button @click="goToRegister('studio')" class="btn">Register now</button>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           <p>Book with the best studios in the right place around the world.</p>
         </div>
         <div class="card-btn">
-          <nuxt-link to="/register?type=artist" class="btn">Register now</nuxt-link>
+          <button @click="goToRegister('artist')" class="btn">Register now</button>
         </div>
       </div>
 
@@ -43,7 +43,7 @@
           <p>Follow your preferer tattoo artist and see where he will be tattooing.</p>
         </div>
         <div class="card-btn">
-          <nuxt-link to="/register?type=client" class="btn">Register now</nuxt-link>
+          <button @click="goToRegister('cliente')" class="btn">Register now</button>
         </div>
       </div>
 
@@ -55,6 +55,12 @@
 
 <script>
 export default {
+  methods: {
+    goToRegister(profileType) {
+      this.$store.commit('setProfileType', profileType)
+      this.$router.replace({ path: '/register' })
+    } 
+  }
 }
 </script>
 

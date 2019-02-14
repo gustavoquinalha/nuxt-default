@@ -5,7 +5,7 @@
         {{ $store.state.error }}
       </div>
       <!-- step 1 -->
-      <div class="" v-if="step === 1">
+      <div v-if="step === 1">
         <div class="text-align-center title">
           <span class="h1 fade-up">Register</span>
         </div>
@@ -13,31 +13,31 @@
           <div class="login-block">
             <p class="margin-bottom-20">Choose a profile a type:</p>
             <ul class="tabs container align-center wrap justify-content-around">
-              <li class="tab-link" :class="{active :  profileType === 'studio'}" @click="profileType = 'studio'">
+              <li class="tab-link" :class="{ active :  profileType === 'studio' }" @click="profileType = 'studio'">
                 <span>Studio</span>
               </li>
-              <li class="tab-link" :class="{active :  profileType === 'artist'}" @click="profileType = 'artist'">
+              <li class="tab-link" :class="{ active :  profileType === 'artist' }" @click="profileType = 'artist'">
                 <span>Artist</span>
               </li>
-              <li class="tab-link" :class="{active :  profileType === 'client'}" @click="profileType = 'client'">
+              <li class="tab-link" :class="{ active :  profileType === 'client' }" @click="profileType = 'client'">
                 <span>Client</span>
               </li>
             </ul>
 
-            <form class="">
+            <form>
               <div class="input-block-inline">
-                <label for=""><i class="fas fa-user"></i></label>
-                <input type="text" name="" value="" class="input-block" placeholder="Username" v-model="user.username">
+                <label><i class="fas fa-user"></i></label>
+                <input type="text" class="input-block" placeholder="Username" v-model="user.username">
               </div>
 
               <div class="input-block-inline">
-                <label for=""><i class="fas fa-envelope"></i></label>
-                <input type="text" name="" value="" class="input-block" placeholder="E-mail" v-model="user.email">
+                <label><i class="fas fa-envelope"></i></label>
+                <input type="text" class="input-block" placeholder="E-mail" v-model="user.email">
               </div>
 
               <div class="input-block-inline">
-                <label for=""><i class="fas fa-lock"></i></label>
-                <input type="password" name="" value="" class="input-block" placeholder="********" v-model="user.password">
+                <label><i class="fas fa-lock"></i></label>
+                <input type="password" class="input-block" placeholder="********" v-model="user.password">
               </div>
 
               <div class="container align-center">
@@ -57,7 +57,7 @@
       <!-- step 1 -->
 
       <!-- step 2 artist -->
-      <div class="" v-else-if="step === 2 && profileType === 'artist'">
+      <div v-else-if="step === 2 && profileType === 'artist'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -94,15 +94,7 @@
             </div>
           </div>
           <div class="login-block full">
-              <div class="container-input input-file container align-center column text-align-center">
-                <label for="avatar" class="container-avatar container align-center column text-align-center">
-                  <input type="file" v-on:change="avatarUpload()" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-                  <div class="avatar-img avatar-img-lg container align-center">
-                    <i class="fas fa-camera"></i>
-                  </div>
-                  <span class="link">Upload a profile photo</span>
-                </label>
-              </div>
+              <ProfilePictureUpload></ProfilePictureUpload>
               <div class="container wrap container-form">
                 <div class="group flex-basis-200 flex-grow-1">
                   <input type="text" name="name" required v-model="user.firstName">
@@ -111,23 +103,30 @@
                   <label>Name</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <input type="text" name="lastName" required v-model="user.lastName">
+                  <input type="text" required v-model="user.lastName">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Last name</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <select class="" name="lastName" required v-model="user.gender">
-                    <option value=""></option>
-                    <option value="">2</option>
-                    <option value="">3</option>
+                  <select
+                    required
+                    v-model="user.gender"
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Gender</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <input type="text" name="lastName" required v-model="user.ager">
+                  <input
+                    type="number"
+                    required
+                    v-model="user.age"
+                  >
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Age</label>
@@ -135,25 +134,13 @@
               </div>
           </div>
         </div>
-        <div class="container-location container align-center column text-align-center fade-up delay-1">
-          <div class="margin-bottom-10">
-            <label for="" class="h1">Location</label>
-          </div>
-          <div class="group">
-            <input type="text" name="lastName" required v-model="user.location">
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Enter your location</label>
-            <i class="btn-edit fas fa-pen"></i>
-          </div>
-          <div class="container-map">
-            <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
-          </div>
-        </div>
+        <no-ssr>
+          <location @update="data => user.location = data"/>
+        </no-ssr>
         <div class="container-next-step border-top-0 fade-up delay-1">
           <div class="input-block input-check container align-center text-align-center">
-            <label for="">Available for travelling?</label>
-            <input type="checkbox" name="" class="checkbox" value="" v-model="user.availableTravelling">
+            <label>Available for travelling?</label>
+            <input type="checkbox" class="checkbox" v-model="user.availableTravelling">
             <div class="check-bg" @click="user.availableTravelling = !user.availableTravelling" :class="{yes : user.availableTravelling}">
               <div class="check-yes fade delay-1" v-show="user.availableTravelling">
                 YES
@@ -169,7 +156,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
-            @click="update({ user, step: 3 })"
+            @click="update({ user, step: 2 })"
           >Next <i class="fas fa-angle-right"></i></button>
           <span>or</span>
           <a href="#">Do it later</a>
@@ -178,7 +165,7 @@
       <!-- step 2 artist -->
 
       <!-- step 3 artist -->
-      <div class="" v-else-if="step === 3 && profileType === 'artist'">
+      <div v-else-if="step === 3 && profileType === 'artist'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -218,30 +205,30 @@
             <div class="flex-basis-200 flex-grow-1">
               <p>Tattoo Style(s)</p>
               <ul class="list-none container wrap">
-                <li class="label" v-for="tattooStyle in tattooStyles" >
+                <li class="label" v-for="(tattooStyle, index) in tattooStyles" >
                   {{ tattooStyle.title }}
-                  <i class="far fa-times-circle" @click="$emit('remove')"></i>
+                  <i class="far fa-times-circle" @click="removeTattooStyle(index)"></i>
                 </li>
               </ul>
               <div class="group">
-                <input type="text" name="lastName" required v-model="newTattoStyle">
+                <input type="text" required v-model="newTattooStyle">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Enter a tattoo style</label>
-                <i class="fas btn-edit fa-plus" @click="addNewTattoStyle()"></i>
+                <i class="fas btn-edit fa-plus" @click="addTattooStyle()"></i>
               </div>
             </div>
 
             <div class="flex-basis-200 flex-grow-1">
               <p>Work at any Studio?</p>
               <ul class="list-none container wrap">
-                <li class="label" v-for="studio in studios" >
+                <li class="label" v-for="(studio, index) in studios" >
                   {{ studio.title }}
-                  <i class="far fa-times-circle" @click="$emit('remove')"></i>
+                  <i class="far fa-times-circle" @click="removeStudio(index)"></i>
                 </li>
               </ul>
               <div class="group">
-                <input type="text" name="lastName" required v-model="newStudio">
+                <input type="text" required v-model="newStudio">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Enter a tattoo studio</label>
@@ -250,7 +237,11 @@
             </div>
 
             <div class="group flex-basis-400">
-              <input type="text" name="lastName" required v-model="user.ager">
+              <input
+                type="number"
+                required
+                v-model="user.age"
+              >
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Tell a little about the studio</label>
@@ -282,7 +273,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
-            @click="update({ user, step: '/logged/my-account' })"
+            @click="update({ user, step: 'last' })"
           >Done!</button>
           <span>or</span>
           <a href="#">Skip this step</a>
@@ -291,7 +282,7 @@
       <!-- step 3 artist -->
 
       <!-- step 2 studio -->
-      <div class="" v-else-if="step === 2 && profileType === 'studio'">
+      <div v-else-if="step === 2 && profileType === 'studio'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -328,15 +319,7 @@
             </div>
           </div>
           <div class="login-block full">
-              <div class="container-input input-file container align-center column text-align-center">
-                <label for="avatar" class="container-avatar container align-center column text-align-center">
-                  <input type="file" v-on:change="avatarUpload()" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-                  <div class="avatar-img avatar-img-lg container align-center">
-                    <i class="fas fa-camera"></i>
-                  </div>
-                  <span class="link">Upload a profile photo</span>
-                </label>
-              </div>
+              <ProfilePictureUpload></ProfilePictureUpload>
               <div class="container wrap container-form">
                 <div class="group flex-basis-400 margin">
                   <input type="text" name="name" required v-model="user.firstName">
@@ -346,7 +329,9 @@
                 </div>
 
                 <div class="group flex-basis-1200 flex-grow-1">
-                  <input type="text" name="lastName" required v-model="user.ager">
+                  <textarea
+                    v-model="user.aboutStudio"
+                  ></textarea>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Tell a little about the studio</label>
@@ -357,23 +342,13 @@
               </div>
           </div>
         </div>
-        <div class="container-location container align-center column text-align-center fade-up delay-1">
-          <div class="margin-bottom-10">
-            <label for="" class="h1">Location</label>
-          </div>
-          <div class="group">
-            <input type="text" name="lastName" required v-model="user.location">
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Enter your location</label>
-            <i class="btn-edit fas fa-pen"></i>
-          </div>
-          <div class="container-map">
-            <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
-          </div>
-          <div class="input-block input-check container align-center text-align-center border-map">
-            <label for="">Available for guests?</label>
-            <input type="checkbox" name="" class="checkbox" value="" v-model="user.availableGuest">
+        <no-ssr>
+          <location @update="data => user.location = data"/>
+        </no-ssr>
+        <div class="container-next-step border-top-0 fade-up delay-1">
+          <div class="input-block input-check container align-center text-align-center">
+            <label>Available for guests?</label>
+            <input type="checkbox" class="checkbox" v-model="user.availableGuest">
             <div class="check-bg" @click="user.availableGuest = !user.availableGuest" :class="{yes : user.availableGuest}">
               <div class="check-yes fade delay-1" v-show="user.availableGuest">
                 YES
@@ -387,7 +362,7 @@
         </div>
         <div class="container-workingtime container align-center column text-align-center fade-up delay-1">
           <div class="margin-bottom-10">
-            <label for="" class="h1">Working time</label>
+            <label class="h1">Working time</label>
           </div>
           <div class="workingtime-box container wrap">
             <div class="group flex-basis-200 flex-grow-1">
@@ -403,16 +378,17 @@
               <label>To</label>
             </div>
             <div class="group flex-basis-200 flex-grow-1">
-              <select class="" name="lastName" required v-model="user.gender">
-                <option value=""></option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
+              <select
+                required
+                v-model="user.gender"
+              >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <label>Repeat</label>
+              <label>Gender</label>
             </div>
           </div>
         </div>
@@ -420,7 +396,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
-            @click="update({ user, step: 3 })"
+            @click="update({ user, step: 2 })"
           >Next <i class="fas fa-angle-right"></i></button>
           <span>or</span>
           <a href="#">Do it later</a>
@@ -429,7 +405,7 @@
       <!-- step 2 studio -->
 
       <!-- step 3 studio -->
-      <div class="" v-else-if="step === 3 && profileType === 'studio'">
+      <div v-else-if="step === 3 && profileType === 'studio'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -466,22 +442,27 @@
               <span>Back</span>
             </div>
           </div>
-
             <div class="margin-bottom-10">
               <div class="text-align-center">
-                <label for="" class="h1">Add your artists profiles to your team</label>
+                <label class="h1">Add your artists profiles to your team</label>
               </div>
             </div>
             <div class="workingtime-box container wrap">
               <div class="group flex-basis-200 flex-grow-1">
-                <input type="text" name="from" required v-model="user.name">
+                <input type="text" name="from" required v-model="teamName">
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label>Enter an artist name</label>
-                <i class="fas btn-edit fa-plus"></i>
+                <i @click="addTeam" class="fas btn-edit fa-plus"></i>
               </div>
             </div>
-
+            <div class="workingtime-box container wrap">
+              <div class="group flex-basis-200 flex-grow-1">
+                <ul>
+                  <li v-for="teamName in team">{{ teamName }}</li>
+                </ul>
+              </div>
+            </div>
         </div>
 
         <div class="container align-center column container-next-step fade-up delay-1">
@@ -491,7 +472,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
-            @click="update({ user, step: '/logged/my-account' })"
+            @click="update({ user, step: 'last' })"
           >Done!</button>
           <span>or</span>
           <a href="#">Skip this step</a>
@@ -500,7 +481,7 @@
       <!-- step 3 studio -->
 
       <!-- step 2 client -->
-      <div class="" v-else-if="step === 2 && profileType === 'client'">
+      <div v-else-if="step === 2 && profileType === 'client'">
         <div class="text-align-center title">
           <span class="h1 fade-up">Complete your registration</span>
         </div>
@@ -548,32 +529,35 @@
                   <label>Name</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <input type="text" name="lastName" required v-model="user.lastName">
+                  <input type="text" required v-model="user.lastName">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Last name</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <select class="" name="lastName" required v-model="user.gender">
-                    <option value=""></option>
-                    <option value="">2</option>
-                    <option value="">3</option>
+                  <select
+                    required
+                    v-model="user.gender"
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Gender</label>
                 </div>
                 <div class="group flex-basis-200 flex-grow-1">
-                  <input type="text" name="lastName" required v-model="user.ager">
+                  <input type="text" required v-model="user.age">
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>Age</label>
                 </div>
                 <div class="group flex-basis-400">
-                  <input type="text" name="lastName" required v-model="user.ager">
+                  <input type="number" required v-model="user.bio">
                   <span class="highlight"></span>
                   <span class="bar"></span>
-                  <label>Tell a little about the studio</label>
+                  <label>Tell a little about you</label>
                   <div class="container justify-content-end">
                     <i>500 characters</i>
                   </div>
@@ -581,22 +565,9 @@
               </div>
           </div>
         </div>
-        <div class="container-location container align-center column text-align-center fade-up delay-1">
-          <div class="margin-bottom-10">
-            <label for="" class="h1">Location</label>
-          </div>
-          <div class="group">
-            <input type="text" name="lastName" required v-model="user.location">
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Enter your location</label>
-            <i class="btn-edit fas fa-pen"></i>
-          </div>
-          <div class="container-map">
-            <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD6TwKebgynScOZTqJtpDQ5GvhrZtVQZNA&q=Tattoo+In+Nova+York" allowfullscreen></iframe>
-          </div>
-        </div>
-
+        <no-ssr>
+          <location @update="data => user.location = data"/>
+        </no-ssr>
         <div class="container align-center column container-next-step fade-up delay-1">
           <div class="margin-bottom-20">
             <p>By registering you agree with Worbink`s <a href="#">Terms and Conditions.</a> </p>
@@ -604,7 +575,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
-            @click="update({ user, step: '/logged/my-account' })"
+            @click="update({ user, step: 'last' })"
           >Done!</button>
           <span>or</span>
           <a href="#">Do it later</a>
@@ -616,13 +587,23 @@
 </template>
 
 <script>
+import location from '@/components/location'
 import { mapActions } from 'vuex'
+import ProfilePictureUpload from '@/components/ProfilePictureUpload'
+
 export default {
-  layout: "sign",
+  layout: 'sign',
+
+  middleware: 'public',
+
+  components: {
+    location,
+    ProfilePictureUpload
+  },
 
   asyncData(context) {
     return {
-      profileType: context.query.type
+      profileType: context.store.state.profileType || context.query.type
     }
   },
   data() {
@@ -632,43 +613,32 @@ export default {
         profileType: 'artist',
         email: '',
         password: '',
-        picture: '',
-        firstName: "",
-        lastName: "",
-        gender: "",
-        age: "",
-        location: "",
+        pictureUrl: '',
+        firstName: '',
+        lastName: '',
+        gender: '',
+        age: '',
+        location: '',
         availableTravelling: true,
         availableGuest: true,
         time: {
-          to: "08:00",
-          from: "18:00"
+          to: '08:00',
+          from: '18:00'
         },
         tattoo: {
-          style: "",
-          studio: ""
-        }
-      },
-      newTattoStyle: "",
-      tattooStyles: [
-        {
-          id: 1,
-          title: "Old School"
+          style: '',
+          studio: ''
         },
-        {
-          id: 2,
-          title: "New School"
-        }
-      ],
-      nextTattoStyleID: 3,
-      newStudio: "",
-      studios: [
-        {
-          id: 1,
-          title: "Bernarti Studio"
-        }
-      ],
-      nextStudioID: 2
+        tattooStyles: [],
+        studios: [],
+        team: []
+      },
+      newTattooStyle: '',
+      tattooStyles: [],
+      newStudio: '',
+      studios: [],
+      teamName: '',
+      team: []
     };
   },
 
@@ -692,24 +662,44 @@ export default {
     avatarUpload() {
     },
 
-    addNewTattoStyle: function() {
-      this.tattooStyles.push({
-        id: this.nextTattoStyleID++,
-        title: this.newTattoStyle
-      });
-      this.newTattoStyle = "";
+    addTattooStyle() {
+      this.tattooStyles = _.concat(this.tattooStyles, {
+        title: this.newTattooStyle
+      })
+      this.newTattooStyle = ''
+      this.user.tattooStyles = this.tattooStyles
     },
 
-    addStudio: function() {
-      this.studios.push({
-        id: this.nextStudioID++,
+    removeTattooStyle(index) {
+      this.tattooStyles.splice(index, 1)
+      this.user.tattooStyles = this.tattooStyles
+    },
+
+    addStudio() {
+      this.studios = _.concat(this.studios, {
         title: this.newStudio
-      });
-      this.newStudio = "";
+      })
+      this.newStudio = ''
+      this.user.studios = this.studios
+    },
+
+    removeStudio(index) {
+      this.studios.splice(index, 1)
+      this.user.studios = this.studios
+    },
+
+
+    addTeam() {
+      this.team = _.concat(this.team, this.teamName)
+      this.user.team = this.team
+      this.teamName = ''
+    }
+  },
+
+  watch: {
+    profileType: function(type) {
+      this.$store.commit('setProfileType', type)
     }
   }
 };
 </script>
-
-<style lang="scss">
-</style>

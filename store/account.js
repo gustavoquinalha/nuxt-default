@@ -3,8 +3,8 @@ export const state = () => ({
 
 export const getters = {
   pictureUrl(state, getters, rootState, rootGetters) {
-    return rootState.auth.user.pictureUrl ||
-    'https://images-na.ssl-images-amazon.com/images/M/MV5BMTAyNTAzMTA4OTJeQTJeQWpwZ15BbWU3MDA4NDI2Njk@._V1_UX172_CR0,0,172,256_AL_.jpg'
+    return rootState.auth && rootState.auth.user && rootState.auth.user.pictureUrl || ''
+    //'https://images-na.ssl-images-amazon.com/images/M/MV5BMTAyNTAzMTA4OTJeQTJeQWpwZ15BbWU3MDA4NDI2Njk@._V1_UX172_CR0,0,172,256_AL_.jpg'
   }
 }
 
@@ -31,6 +31,17 @@ export const actions = {
       store.commit('setStep', 2, { root: true })
     } catch (error) {
       store.dispatch('setError', error, { root: true })
+      /**
+       * 
+       *  WARNING!!!
+       * 
+       *  REMOVE THIS BEFORE/ TEST PURPOSE
+       * 
+       *  WARNING!!!
+       * 
+       */
+      // this.$auth.$storage.setState('user', { username, email, password, profileType })
+      // store.commit('setStep', 2, { root: true })
     }
   },
   async logout(store) {
@@ -54,10 +65,31 @@ export const actions = {
         this.$auth.setUser(response.data) // this make redirect
       } else {
         this.$auth.$storage.setState('user', response.data)
-        store.commit('setStep', step, { root: true })
+
+        if (step === 'last') {
+          this.$router.replace({ path: 'logged/my-account' })
+        } else if (!isNaN(step)) {
+          store.commit('setStep', step + 1, { root: true })
+        }
       }
     } catch (error) {
       store.dispatch('setError', error, { root: true })
+      /**
+       * 
+       *  WARNING!!!
+       * 
+       *  REMOVE THIS BEFORE/ TEST PURPOSE
+       * 
+       *  WARNING!!!
+       * 
+       */
+      // this.$auth.$storage.setState('user', user)
+
+      // if (step === 'last') {
+      //   this.$router.replace({ path: 'logged/my-account' })
+      // } else if (!isNaN(step)) {
+      //   store.commit('setStep', step + 1, { root: true })
+      // }
     }
   },
   async uploadProfilePic(store, file) {

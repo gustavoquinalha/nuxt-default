@@ -28,7 +28,6 @@
     <div class="fade-up" v-show="tabActive === 'my-profile'">
       <myProfile>
       </myProfile>
-      
     </div>
     <!-- tab my profiles  -->
 
@@ -132,7 +131,8 @@
 </template>
 
 <script>
-import myProfile from "@/components/my-profile.vue";
+import myProfile from "@/components/my-profile.vue"
+
 export default {
   layout: "logged",
   components: {

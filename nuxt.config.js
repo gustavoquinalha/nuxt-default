@@ -1,4 +1,6 @@
-module.exports = {
+import webpack from 'webpack'
+
+export default {
   loading: {
     color: '#f48c39'
   },
@@ -51,6 +53,11 @@ module.exports = {
     { src: '~/plugins/vue2-google-maps', ssr: false }
   ],
   build: {
-    transpile: [/^vue2-google-maps($|\/)/]
+    transpile: [/^vue2-google-maps($|\/)/],
+    plugins: [
+      new webpack.ProvidePlugin({
+        '_': 'lodash'
+      })
+    ]
   }
 }

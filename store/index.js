@@ -1,6 +1,7 @@
 export const state = () => ({
   error: '',
-  step: 1
+  step: 1,
+  profileType: 'studio'
 })
 
 export const getters = {
@@ -12,6 +13,9 @@ export const mutations = {
   },
   setStep(state, step) {
     state.step = step
+  },
+  setProfileType(state, type) {
+    state.profileType = type
   }
 }
 
@@ -24,7 +28,7 @@ export const actions = {
     if (error) {
       let response = error.response
       let data = response && response.data
-      message = data && data.message
+      message = data && data.message || message
     }
 
     store.commit('SET_ERROR', message)

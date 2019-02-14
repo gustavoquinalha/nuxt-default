@@ -39,6 +39,7 @@ import { mapActions } from 'vuex'
 
 export default {
   layout: 'sign',
+  middleware: 'public',
   data() {
     return {
       user: {

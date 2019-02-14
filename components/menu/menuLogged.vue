@@ -10,8 +10,9 @@
 
       <div class="menu-dropdown">
         <div class="dropdown container">
-          <div class="img-avatar">
-            <img :src="$store.getters['account/pictureUrl']">
+          <div class="img-avatar container align-center">
+            <img v-if="$store.getters['account/pictureUrl']" :src="$store.getters['account/pictureUrl']">
+            <i v-else class="fas fa-camera"></i>
           </div>
           <div class="dropdown-content" style="width: 160px;">
             <div class="dropdown-block">
@@ -22,9 +23,9 @@
                   </nuxt-link>
                 </li>
                 <li>
-                  <nuxt-link to="/" class="dropdown-item">
-                  Logout
-                  </nuxt-link>
+                  <button @click="$store.dispatch('account/logout')" class="btn btn-link dropdown-item">
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
